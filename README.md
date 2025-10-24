@@ -1,11 +1,13 @@
 # 🛍️ Projeto API de Pedidos (+ CLI)
-Um sistema completo em C# e .NET 9 para gerenciamento de pedidos, construído com uma arquitetura limpa que inclui uma API RESTful (para consumo web) e uma aplicação de console (CLI) para gerenciamento direto.Ambas as aplicações compartilham o mesmo banco de dados SQLite e a mesma lógica de negócios (Models e DbContext) via Entity Framework Core.<p align="center"><img src="https://img.shields.io/badge/C%23-11-blueviolet?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C# 11"><img src="https://img.shields.io/badge/.NET-9-blue?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET 9"><img src="https://img.shields.io/badge/ASP.NET-Core-blueviolet?style=for-the-badge&logo=aspnet&logoColor=white" alt="ASP.NET Core"><img src="https://img.shields.io/badge/Entity%20Framework-Core-blueviolet?style=for-the-badge" alt="EF Core"><img src="https://img.shields.io/badge/SQLite-blue?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite"></p>
+Um sistema completo em C# e .NET 9 para gerenciamento de pedidos, construído com uma arquitetura limpa que inclui uma API RESTful (para consumo web) e uma aplicação de console (CLI) para gerenciamento direto. Ambas as aplicações compartilham o mesmo banco de dados SQLite e a mesma lógica de negócios (Models e DbContext) via Entity Framework Core.<p align="center"><img src="https://img.shields.io/badge/C%23-11-blueviolet?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C# 11"><img src="https://img.shields.io/badge/.NET-9-blue?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET 9"><img src="https://img.shields.io/badge/ASP.NET-Core-blueviolet?style=for-the-badge&logo=aspnet&logoColor=white" alt="ASP.NET Core"><img src="https://img.shields.io/badge/Entity%20Framework-Core-blueviolet?style=for-the-badge" alt="EF Core"><img src="https://img.shields.io/badge/SQLite-blue?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite"></p>
+
 ## ✨ Funcionalidades
 - API RESTful Completa: Operações CRUD (Create, Read, Update, Delete) para Pedidos e Itens.
 - Aplicação de Console (CLI): Uma interface de linha de comando robusta para gerenciar o banco de dados diretamente, ideal para testes rápidos ou scripts.
 - Banco de Dados Único: A API e o CLI acessam e manipulam o mesmo arquivo de banco de dados pedidos.db.
 - Migrations com EF Core: A estrutura do banco é gerenciada por "migrations", facilitando a criação e atualização do schema.
 - Relacionamento 1-N: Um Pedido pode ter múltiplos Itens, configurado com deleção em cascata (ao deletar um pedido, seus itens são deletados).
+
 
 # 🚀 Como Começar (Passos para Rodar)
 > Siga estes passos para configurar e executar o projeto localmente.
@@ -62,7 +64,8 @@ dotnet run
 
 O menu do CLI aparecerá, permitindo listar, adicionar ou deletar pedidos.
 
-# 🗂️ Estrutura das Entidades (Models)O banco de dados é composto por duas tabelas principais, `Pedidos` e `Itens`. 
+# 🗂️ Estrutura das Entidades (Models)
+> O banco de dados é composto por duas tabelas principais, `Pedidos` e `Itens`. 
 
 `Pedido.cs`
 > Representa o pedido de um cliente.
@@ -119,26 +122,29 @@ Base URL: `http://localhost:PORT/api` (PORT = porta que o terminal indicar, ex.:
 
 `PedidosController (/api/pedidos)`
 
-Método | Rota | Descrição
-GET | /api/pedidos | "Retorna uma lista de todos os pedidos, incluindo seus itens."
-GET | /api/pedidos/{id} | "Retorna um pedido específico pelo seu Id, incluindo seus itens."
-POST | /api/pedidos | Cria um novo pedido. O total é calculado automaticamente.
-PUT | /api/pedidos/{id} | Atualiza um pedido existente. (Requer o corpo completo do pedido).
-DELETE | /api/pedidos/{id} | Deleta um pedido e todos os seus itens (via Cascade Delete).
+| Método | Rota | Descrição
+| --- | --- | --- |
+| `GET` | `/api/pedidos` | "Retorna uma lista de todos os pedidos, incluindo seus itens." |
+| `GET` | `/api/pedidos/{id}` | "Retorna um pedido específico pelo seu Id, incluindo seus itens." |
+| `POST` | `/api/pedidos` | Cria um novo pedido. O total é calculado automaticamente. |
+| `PUT` | `/api/pedidos/{id}` | Atualiza um pedido existente. (Requer o corpo completo do pedido). |
+| `DELETE` | `/api/pedidos/{id}` | Deleta um pedido e todos os seus itens (via Cascade Delete). |
 
 `ItensController (/api/itens)`
 
-Método | Rota | Descrição
-GET | /api/itens | Retorna uma lista de todos os itens de todos os pedidos.
-GET | /api/itens/{id} | Retorna um item específico pelo seu Id.
-PUT | /api/itens/{id} | Atualiza um item específico.
-DELETE | /api/itens/{id} | Deleta um item específico do banco.
+| Método | Rota | Descrição |
+| --- | --- | --- |
+| `GET` | `/api/itens` | Retorna uma lista de todos os itens de todos os pedidos. |
+| `GET` | `/api/itens/{id}` | Retorna um item específico pelo seu Id. |
+| `PUT` | `/api/itens/{id}` | Atualiza um item específico. |
+| `DELETE` | `/api/itens/{id}` | Deleta um item específico do banco. |
+
 
 # 🧪 Como Testar a Aplicação
 
 #### 1. Testando com a Aplicação CLI
 
-O CLI é a forma mais direta de verificar se os dados estão sendo salvos.
+> O CLI é a forma mais direta de verificar se os dados estão sendo salvos.
 
 1. Vá para a pasta PedidosAPI_CLI.
 
@@ -157,8 +163,8 @@ O CLI é a forma mais direta de verificar se os dados estão sendo salvos.
 ```
 
 #### 2. Testando com Arquivo .http (VS Code)
-Se você usa o Visual Studio Code, pode usar a extensão REST Client e o arquivo `PedidosAPI.http` (que já deve estar no seu projeto).
-Basta abri-lo e clicar em Send Request em cima da requisição que deseja fazer.
+> Se você usa o Visual Studio Code, pode usar a extensão REST Client e o arquivo `PedidosAPI.http` (que já deve estar no seu projeto).
+> Basta abri-lo e clicar em Send Request em cima da requisição que deseja fazer.
 
 Exemplo (`PedidosAPI.http`):
 
@@ -200,7 +206,7 @@ DELETE {{baseUrl}}/pedidos/3
 - Certifique-se que a API (PedidosAPI) esteja rodando (dotnet run).
 - Crie uma nova requisição no seu cliente de API.
 
-Exemplo: Criando um Pedido [POST]
+**Exemplo: Criando um Pedido [POST]**
 1. Método: POST
 2. URL: https://localhost:7123/api/pedidos
 3. Selecione a aba Body (Corpo).
@@ -229,7 +235,7 @@ Exemplo: Criando um Pedido [POST]
 ```
 </details>
 
-Exemplo: Atualizando um Item [PUT]
+**Exemplo: Atualizando um Item [PUT]**
 1. Método: PUT
 2. URL: https://localhost:7123/api/itens/1 (para atualizar o item de ID 1)
 3. Selecione a aba Body (Corpo) -> raw -> JSON.
