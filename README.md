@@ -209,7 +209,7 @@ DELETE {{baseUrl}}/pedidos/3
 
 **Exemplo: Criando um Pedido [POST]**
 1. Método: POST
-2. URL: https://localhost:7123/api/pedidos
+2. URL: https://localhost:PORT/api/pedidos
 3. Selecione a aba Body (Corpo).
 4. Escolha o tipo raw.
 5. Escolha o formato JSON.
@@ -238,7 +238,7 @@ DELETE {{baseUrl}}/pedidos/3
 
 **Exemplo: Atualizando um Item [PUT]**
 1. Método: PUT
-2. URL: https://localhost:7123/api/itens/1 (para atualizar o item de ID 1)
+2. URL: https://localhost:PORT/api/itens/1 (para atualizar o item de ID 1)
 3. Selecione a aba Body (Corpo) -> raw -> JSON.
 4. Cole o JSON de exemplo abaixo:
 <details> <summary>Clique para ver o Exemplo de JSON (PUT Item)</summary>
