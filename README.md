@@ -33,7 +33,8 @@ cd PedidosAPI
 dotnet ef database update
 ```
 
-#### Passo 2: Executar a APIA API precisa estar rodando para receber requisições HTTP.
+#### Passo 2: Executar a API
+> A API precisa estar rodando para receber requisições HTTP.
 ```bash
 # 1. (Se não estiver) Entre na pasta da API
 cd PedidosAPI
@@ -42,7 +43,7 @@ cd PedidosAPI
 dotnet run
 ```
 
-O terminal mostrará as URLs onde a API está escutando, similar a:
+> O terminal mostrará as URLs onde a API está escutando, similar a:
 ```
 info: Microsoft.Hosting.Lifetime[14]
       Now listening on: https://localhost:7123
