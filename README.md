@@ -66,7 +66,7 @@ dotnet run
 O menu do CLI aparecerá, permitindo listar, adicionar ou deletar pedidos.
 
 # 🗂️ Estrutura das Entidades (Models)
-> O banco de dados é composto por duas tabelas principais, `Pedidos` e `Itens`. 
+O banco de dados é composto por duas tabelas principais, `Pedidos` e `Itens`. 
 
 `Pedido.cs`
 > Representa o pedido de um cliente.
